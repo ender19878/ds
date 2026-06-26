@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1. MIME 프리셋 선택 및 커스텀 주입"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp"/>
+
+    <Spinner
+        android:id="@+id/spPresets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"/>
+
+    <EditText
+        android:id="@+id/etMimeType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="MIME 타입 입력 (예: application/json)"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/etRawData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Raw 데이터 입력"
+        android:gravity="top"
+        android:lines="4"
+        android:layout_marginBottom="12dp"/>
+
+    <Button
+        android:id="@+id/btnInjectCustom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="지정한 포맷으로 클립보드 복사"
+        android:layout_marginBottom="16dp"/>
+
+    <View 
+        android:layout_width="match_parent" 
+        android:layout_height="1dp" 
+        android:background="#CCCCCC" 
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2. 클립보드 종합 인스펙터"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/btnInspectAll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="현재 클립보드 정보 실시간 파싱"
+        android:layout_marginBottom="12dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#EFEFEF"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/tvInspectorOutput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="분석 버튼을 누르면 상세 스펙이 출력됩니다."
+            android:fontFamily="monospace"
+            android:textSize="13sp"/>
+    </ScrollView>
+
+</LinearLayout>
