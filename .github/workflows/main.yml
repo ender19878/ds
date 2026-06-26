@@ -3,21 +3,32 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    # ★ 핵심: 모든 명령어를 app-project 폴더 안에서 실행하도록 기지 지정
+    defaults:
+      run:
+        working-directory: ./app-project
+        
     steps:
     - uses: actions/checkout@v4
+    
     - name: set up JDK 17
       uses: actions/setup-java@v4
       with:
         java-version: '17'
         distribution: 'temurin'
+        
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v4
       with:
         gradle-version: 8.5
+        build-root-directory: ./app-project # Gradle 분석 루트도 변경
+        
     - name: Build APK
       run: gradle assembleDebug
+      
     - name: Upload Finished APK
       uses: actions/upload-artifact@v4
       with:
         name: NativeDataSharerApp
-        path: app/build/outputs/apk/debug/app-debug.apk
+        # 추출할 APK 파일의 실제 경로도 한 단계 깊게 지정
+        path: app-project/app/build/outputs/apk/debug/app-debug.apk
